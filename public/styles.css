@@ -1,0 +1,79 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #333;
+}
+
+.navbar {
+    background-color: #ccc;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#cartImg {
+    width: 30px;
+    height: 30px;
+}
+
+#counterCart {
+    font-size: 30px;
+}
+
+
+#cartContainer {
+    width: 30em;
+    height: 20em;
+    border: 1px solid gray;
+    border-radius: 10px;
+    color: #fff;
+    padding: 10px;
+    margin: 0 auto;
+    overflow: auto;
+    gap: 2em;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#cartContainer p {
+    display: flex;
+    border-bottom: #ccc;
+}    
+
+.cartContent {
+    color: #fff;
+    border-bottom: #ccc;
+}
+
+.title {
+    color: #fff;
+    margin-top: 3em;
+}
+
+#cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    color: #fff;
+    background-color: transparent;
+    border-color: gray;
+    width: 30em;
+    height: auto;
+    margin: 1em;
+}
+
+
+.card img {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    padding: 10px;
+
+}
