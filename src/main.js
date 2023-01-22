@@ -1,7 +1,9 @@
-const printStock = () => {
+const printStock = async () => {
     const container = document.getElementById("cards-container")
 
-    products.forEach(product => {
+    const controllerData = await stockController()
+
+    controllerData.forEach(product => {
         const div = document.createElement("div");
         div.classList.add("card")
         div.innerHTML += `
