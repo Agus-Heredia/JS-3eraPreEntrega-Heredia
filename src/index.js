@@ -6,4 +6,4 @@ document.addEventListener("DOMContentLoaded", () => {
         updateCart(cart);
         finalCart(cart);
     }
-})
+});
