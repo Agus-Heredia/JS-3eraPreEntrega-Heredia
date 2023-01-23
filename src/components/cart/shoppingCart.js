@@ -19,9 +19,16 @@ const validateProduct = (productId) => {
         printProducts(product)
         saveCartStorage(cart)
         // console.log(cart)
+        updateCart(cart)
 
     } else {
         repeatedProduct.quantity++
+        const productQuantity = document.getElementById(`quantityCart${repeatedProduct.id}`)
+        productQuantity.innerText = `Cantidad: ${repeatedProduct.quantity}`
+        // console.log(cart);
+        updateCart(cart)
+
+
     }
 
 };
@@ -31,13 +38,57 @@ const printProducts = (product) => {
     const div = document.createElement("div")
     div.classList.add("cartContent")
     div.innerHTML = `
-    <p><i> ${product.name}</i></p> 
-    <p>Precio: $<strong>${product.price}</strong></p> 
-    <p>Cantidad:${product.quantity}</p>
+    <p><i><strong>${product.name}</strong></i></p> 
+    <p>Precio: $${product.price}</p> 
+    <p id=quantityCart${product.id}>Cantidad: ${product.quantity}</p>
+    <button type="button" class="btn deleteBtn btn-outline-danger" value=${product.id}>X</button>
     `
     container.appendChild(div)
     saveCartStorage(cart)
 };
+
+
+const updateCart = (cart) => {
+    const totalProductsOnCart = cart.reduce ((acc, item) => acc + item.quantity, 0)
+    const totalPrice = cart.reduce ((acc, item) => acc + (item.price * item.quantity), 0)
+
+    printOnCart(totalProductsOnCart, totalPrice)
+};
+
+const printOnCart = (totalProductsOnCart, totalPrice) => {
+    const cartCounter = document.querySelector("#cartNumber")
+    const totalCartPrice = document.querySelector("#totalPrice")
+
+    cartCounter.innerText = totalProductsOnCart;
+    totalCartPrice.innerText = totalPrice;
+};
+
+const deleteProduct = (productId) => {
+    const productIndex = cart.findIndex(product => product.id == productId)
+    cart.splice(productIndex, 1)
+    finalCart(cart);
+    updateCart(cart);
+};
+
+const finalCart = (cart) => {
+    const container = document.getElementById("cartContainer")
+    container.innerHTML = "";
+
+    cart.forEach(product => {
+    const div = document.createElement("div")
+    div.classList.add("cartContent")
+    div.innerHTML = `
+    <p><i><strong>${product.name}</strong></i></p> 
+    <p>Precio: $${product.price}</p> 
+    <p id=quantityCart${product.id}>Cantidad: ${product.quantity}</p>
+    <button type="button" class="btn deleteBtn btn-outline-danger" value=${product.id}>X</button>
+    `
+    container.appendChild(div)
+    });
+
+
+};
+
 
 const saveCartStorage = (cart) => {
     localStorage.setItem("shoppingCart", JSON.stringify(cart) )

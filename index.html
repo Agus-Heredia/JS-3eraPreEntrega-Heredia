@@ -25,7 +25,7 @@
           <img src="public/images/apple-logo-black.png" alt="Logo" width="30" height="30"
             class="d-inline-block align-text-top">
           Tienda Apple Online</a>
-        <button type="button" class="btn"> 
+        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal"> 
           <img src="public/images/cart.png" alt="cart" id="cartImg">
           <span class="badge text-bg-secondary" id="cartNumber">0</span>
         </button>
@@ -53,19 +53,32 @@
   </main>
 
 
-  <div id="cartContainer">
-    <h3>Tu carrito:</h3>
-    <!-- <h2>Tu carrito:</h2>
-    <p>Acá podes visualizar los productos que fuiste añadiendo a tus compras</p>
-    <p>Producto:</p>
-    <p>Precio:</p>
-    <p>Cantidad:</p> -->
+
+
+  <!------------------ MODAL ------------------->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Tu Carrito:</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="cartContainer">
+        <!-- <p>Producto:</p>
+        <p>Precio:</p>
+        <p id="quantityCart">Cantidad:</p>
+        <button type="button" class="btn btn-outline-danger">X</button> -->
+      </div>
+      <p class="price">Precio Total: $<span id="totalPrice"></span></p>
+      
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div> -->
+    </div>
   </div>
-
-
-
-
-
+</div>
 
 
 
@@ -80,6 +93,7 @@
   <script src="src/data/stock.js"></script>
   <script src="src/controllers/controllers.js"></script>
   <script src="src/components/cart/shoppingCart.js"></script>
+  <script src="src/components/cart/modal.js"></script>
   <script src="src/main.js"></script>
 
 
