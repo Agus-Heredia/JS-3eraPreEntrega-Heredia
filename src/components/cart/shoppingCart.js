@@ -17,7 +17,6 @@ const validateProduct = (productId) => {
 
         cart.push(product)
         printProducts(product)
-        saveCartStorage(cart)
         // console.log(cart)
         updateCart(cart)
 
@@ -39,12 +38,11 @@ const printProducts = (product) => {
     div.classList.add("cartContent")
     div.innerHTML = `
     <p><i><strong>${product.name}</strong></i></p> 
-    <p>Precio: $${product.price}</p> 
+    <p>Precio: USD $${product.price}</p> 
     <p id=quantityCart${product.id}>Cantidad: ${product.quantity}</p>
     <button type="button" class="btn deleteBtn btn-outline-danger" value=${product.id}>X</button>
     `
-    container.appendChild(div)
-    saveCartStorage(cart)
+    container.appendChild(div);
 };
 
 
@@ -52,7 +50,8 @@ const updateCart = (cart) => {
     const totalProductsOnCart = cart.reduce ((acc, item) => acc + item.quantity, 0)
     const totalPrice = cart.reduce ((acc, item) => acc + (item.price * item.quantity), 0)
 
-    printOnCart(totalProductsOnCart, totalPrice)
+    printOnCart(totalProductsOnCart, totalPrice);
+    saveCartStorage(cart);
 };
 
 const printOnCart = (totalProductsOnCart, totalPrice) => {
@@ -86,12 +85,11 @@ const finalCart = (cart) => {
     container.appendChild(div)
     });
 
-
 };
 
 
 const saveCartStorage = (cart) => {
-    localStorage.setItem("shoppingCart", JSON.stringify(cart) )
+    localStorage.setItem("shoppingCart", JSON.stringify(cart));
 };
 
 const getCartStorage = () => {
