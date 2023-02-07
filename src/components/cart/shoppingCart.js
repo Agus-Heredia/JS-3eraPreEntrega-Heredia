@@ -9,18 +9,22 @@ containerListener.addEventListener("click", (e) => {
     }
 });
 
+
+
 const validateProduct = (productId) => {
     const repeatedProduct = cart.find(product => product.id == productId)
 
     if (!repeatedProduct) {
         const product = products.find(product => product.id == productId)
 
+        toastAlert()
         cart.push(product)
         printProducts(product)
         // console.log(cart)
         updateCart(cart)
 
     } else {
+        toastAlert()
         repeatedProduct.quantity++
         const productQuantity = document.getElementById(`quantityCart${repeatedProduct.id}`)
         productQuantity.innerText = `Cantidad: ${repeatedProduct.quantity}`
@@ -95,6 +99,8 @@ const clearCart = (cart) => {
 
 
 
+
+
 const saveCartStorage = (cart) => {
     localStorage.setItem("shoppingCart", JSON.stringify(cart));
 };
@@ -102,5 +108,24 @@ const saveCartStorage = (cart) => {
 const getCartStorage = () => {
     const cartSorage = JSON.parse(localStorage.getItem("shoppingCart"))
     return cartSorage
+
+};
+
+
+const toastAlert = () => {
+    
+        Toastify({
+
+            text: "Agregaste tu producto correctamente!",
+            duration: 2000,
+            style: {
+                background: "#3CB371" 
+            },
+            offset: {
+                x: "800",
+                y: 7
+              },
+            
+        }).showToast();
 
 };

@@ -21,11 +21,4 @@ const printStock = async () => {
     })
 };
 
-// Toastify({
-//     text: "This is a toast",
-//     className: "info",
-//     style: {
-//       background: "linear-gradient(to right, #ccc, #333)",
-//     }
-//   }).showToast();
 
