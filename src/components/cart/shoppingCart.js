@@ -87,6 +87,13 @@ const finalCart = (cart) => {
 
 };
 
+const clearCart = (cart) => {
+    cart.length = 0;
+    updateCart(cart);
+    finalCart(cart)
+};
+
+
 
 const saveCartStorage = (cart) => {
     localStorage.setItem("shoppingCart", JSON.stringify(cart));

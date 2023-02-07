@@ -51,7 +51,18 @@ body {
 
 .price {
     font-weight: bold;
-    text-align: center;
+}
+
+.clearCartBtn {
+    height: auto;
+    width: auto;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.footerCart {
+    display: flex;
+    justify-content: space-around;
 }
 
 .deleteBtn {
