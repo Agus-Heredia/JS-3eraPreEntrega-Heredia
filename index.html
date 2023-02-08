@@ -8,106 +8,96 @@
   <title>Tienda Apple</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-  <link rel="stylesheet" href="public/styles.css">
-</head>
-
-
-<!-- BODY -->
-
-<body class="conteiner p-3">
-
-
-  <!-- NAVBAR -->
-  <header>
-    <nav class="navbar">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#" id="navTitle">
-          <img src="public/images/apple-logo-black.png" alt="Logo" width="30" height="30"
+    <link rel="stylesheet" href="public/styles.css">
+  </head>
+  
+  
+  <!-- BODY -->
+  <body class="conteiner p-3">
+    
+    
+    <!-- NAVBAR -->
+    <header>
+      <nav class="navbar">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#" id="navTitle">
+            <img src="public/images/apple-logo-black.png" alt="Logo" width="30" height="30"
             class="d-inline-block align-text-top">
-          Tienda Apple Online</a>
-        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal"> 
-          <img src="public/images/cart.png" alt="cart" id="cartImg">
-          <span class="badge text-bg-secondary" id="cartNumber">0</span>
-        </button>
-      </div>
+            Tienda Apple Online</a>
+            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal"> 
+              <img src="public/images/cart.png" alt="cart" id="cartImg">
+              <span class="badge text-bg-secondary" id="cartNumber">0</span>
+            </button>
+          </div>
+          
+        </nav>
+      </header>
+      
 
-    </nav>
-  </header>
-
-  <div class="title">
-    <h1>¡Hola, Bienvenido!</h1>
-    <p>
-      Bienvenido a tu tienda online de productos Apple favorita, acá vas a encontrar los mejores precios del mercado con
-      hasta 12 meses de garantía. Y para tu tranquilidad, contamos con dispositivos <strong>100% ORIGINALES</strong>,
-      exportados directamente desde USA ¡hasta la puerta de tu casa!<br><br>
-      A continación te dejamos los productos que tenemos a disposición:
-    </p>
-  </div>
-
-
-
-
-  <!-- CARDS -->
-  <main class="p-2 mt-5" id="cards-container">
-
-  </main>
-
-
-
-
-  <!------------------ MODAL ------------------->
-
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Tu Carrito:</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body" id="cartContainer">
-        <!-- <p>Producto:</p>
-        <p>Precio:</p>
-        <p id="quantityCart">Cantidad:</p>
-        <button type="button" class="btn btn-outline-danger">X</button> -->
-      </div>
-
-      <div class="footerCart">
-      <p class="price">Precio Total: USD $<span id="totalPrice"></span></p>
-      <button type="button" class="btn btn-danger clearCartBtn">Vaciar carrito</button>
+      <div class="title">
+        <h1>¡Hola, Bienvenido!</h1>
+        <p>
+          Bienvenido a tu tienda online de productos Apple favorita, acá vas a encontrar los mejores precios del mercado con
+          hasta 12 meses de garantía. Y para tu tranquilidad, contamos con dispositivos <strong>100% ORIGINALES</strong>,
+          exportados directamente desde USA ¡hasta la puerta de tu casa!<br><br>
+          A continación te dejamos los productos que tenemos a disposición:
+        </p>
       </div>
       
-      <!-- <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div> -->
+      
+      
+  <!-- CARDS -->
+  <main class="p-2 mt-5" id="cards-container">
+    <!----Renderizamos el stock mediante Fetch para pintar el DOM-->
+  </main>
+  
+  
+  
+  
+  <!-------- MODAL CARRITO ----------->
+  
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Tu Carrito:</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body" id="cartContainer">
+          <!---Acá pintamos mediante una función los objeto del modal del carrito-->
+          </div>
+          
+          <div class="footerCart">
+            <p class="price">Precio Total: USD $<span id="totalPrice"></span></p>
+            <button type="button" class="btn btn-danger clearCartBtn">Vaciar carrito</button>
+          </div>
+
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-  <script src="src/data/stock.js"></script>
-  <script src="src/controllers/controllers.js"></script>
-  <script src="src/components/cart/shoppingCart.js"></script>
-  <script src="src/components/cart/modal.js"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-  <script src="src/components/cart/toastify.js"></script>
-  <script src="src/main.js"></script>
-  <script src="src/index.js"></script>
-
-
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script src="src/data/stock.js"></script>
+    <script src="src/controllers/controllers.js"></script>
+    <script src="src/components/cart/shoppingCart.js"></script>
+    <script src="src/components/cart/modal.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="src/components/cart/sweetalert.js"></script>
+    <script src="src/main.js"></script>
+    <script src="src/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
     crossorigin="anonymous"></script>
-</body>
 
-</html>
+  </body>
+  
+  </html>

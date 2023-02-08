@@ -9,6 +9,7 @@ cartModal.addEventListener("click", (e) => {
     }
 })
 
+
 clearModal.addEventListener("click", (e) => {
     clearCart(cart);
 })

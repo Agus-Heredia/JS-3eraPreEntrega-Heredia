@@ -1,3 +1,4 @@
+//Pintamos el DOM con el stock guardado en un array de objetos, obtenido mediante una función asincrónica y Fetch, de la carpeta local creada en formato JSON
 const printStock = async () => {
     const container = document.getElementById("cards-container")
 
